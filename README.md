@@ -1,2 +1,4 @@
 # Simple-Java-Banking-Application-
-Hii ! Here the users can create their own Bank Account and deposit their initial amount and also they can check their Bank Balance after depositing
+Hii !
+This Java program demonstrates a basic bank account management system where users can create an account, deposit funds, withdraw funds, and check their balance.
+8
