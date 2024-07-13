@@ -1,0 +1,66 @@
+import java.util.*;
+
+class BankAccount {
+    private String accountNumber;
+    private String customerName;
+    private double balance;
+
+    public BankAccount(String accountNumber, String customerName, double balance) {
+        this.accountNumber = accountNumber;
+        this.customerName = customerName;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited $" + amount + " into account " + accountNumber);
+        } else {
+            System.out.println("Deposit amount must be greater than zero.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawn $" + amount + " from account " + accountNumber);
+        } else if (amount <= 0) {
+            System.out.println("Withdrawal amount must be greater than zero.");
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+
+    public void displayBalance() {
+        System.out.println("Account " + accountNumber + " balance: $" + balance);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter account number: ");
+        String accountNumber = scanner.nextLine();
+
+        System.out.print("Enter customer name: ");
+        String customerName = scanner.nextLine();
+
+        System.out.print("Enter initial balance: ");
+        double initialBalance = scanner.nextDouble();
+
+        // Create a new bank account
+        BankAccount account1 = new BankAccount(accountNumber, customerName, initialBalance);
+
+        // Perform transactions
+        System.out.print("Enter deposit amount: ");
+        double depositAmount = scanner.nextDouble();
+        account1.deposit(depositAmount);
+
+        System.out.print("Enter withdrawal amount: ");
+        double withdrawalAmount = scanner.nextDouble();
+        account1.withdraw(withdrawalAmount);
+
+        account1.displayBalance();
+
+        scanner.close();
+    }
+}
